@@ -4,8 +4,6 @@ import { SparklesCore } from './ui/sparkles';
 
 const AppNavbar: React.FC = () => {
     const navigate = useNavigate();
-
-    // Function to check if auth token is present
     const isAuthenticated = !!localStorage.getItem('token');
 
     const handleNavigation = (path: string) => {
@@ -14,7 +12,6 @@ const AppNavbar: React.FC = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('token');
-        // Redirect to homepage or login page after logout
         navigate('/');
     };
 
@@ -22,10 +19,9 @@ const AppNavbar: React.FC = () => {
         <>
             <nav className="bg-gray-800 p-4 w-full">
                 <div className="flex justify-between items-center w-full">
-                    <div className="text-white text-lg font-bold">
-                        BlogMaster
-                    </div>
-                    <div className="flex space-x-4">
+
+                    {/* Center buttons on mobile devices */}
+                    <div className="flex space-x-4 justify-center w-full mobile:justify-center">
                         {isAuthenticated ? (
                             <>
                                 <button
@@ -48,12 +44,25 @@ const AppNavbar: React.FC = () => {
                                 </button>
                             </>
                         ) : (
+                            <>
                             <button
-                                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                                className="bg-blue-500 text-white px-4 py-2 rounded-md mobile: ml-[60%]"
                                 onClick={() => handleNavigation('/auth')}
                             >
                                 Login
                             </button>
+                            <button
+                                className="bg-blue-500 text-white px-4 py-2 rounded-md mobile: ml-[60%]"
+                                onClick={() => handleNavigation('/auth')}
+                            >
+                                Signup
+                            </button>
+
+       
+                            </>
+
+                            
+                            
                         )}
                     </div>
                 </div>

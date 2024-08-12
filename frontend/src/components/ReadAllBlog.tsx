@@ -150,11 +150,12 @@ const BlogList: React.FC = () => {
 
   return (
     <>
-      <div className="absolute inset-0 bg-black flex flex-col items-center justify-center overflow-hidden">
-        <AppNavbar />
+      <div className="absolute inset-0 bg-black flex flex-col items-center justify-center overflow-hidden ">
+        <AppNavbar  />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 flex flex-col items-center justify-start overflow-hidden pt-24 mt-[5%] h-max ">
-        <h1 className="text-5xl font-extrabold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-purple-500">
+
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 flex flex-row items-center justify-start overflow-hidden pt-24  h-max  mobile: mt-[20%] flex-col laptop:mt-[5%] ">
+        <h1 className="text-5xl font-extrabold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-purple-500 mobile: mt-[-15%] laptop:mt-[-5%]">
           All Blog Posts
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4 lg:px-16 xl:px-32 2xl:px-40">
@@ -200,9 +201,8 @@ const BlogList: React.FC = () => {
                   <div className="flex items-center space-x-3">
                     <FontAwesomeIcon
                       icon={faThumbsUp}
-                      className={`text-2xl cursor-pointer transition transform hover:scale-125 ${
-                        likedPosts[blog._id] ? "text-green-400" : "text-gray-500"
-                      } ${updatingLikes[blog._id] ? "pointer-events-none" : ""}`}
+                      className={`text-2xl cursor-pointer transition transform hover:scale-125 ${likedPosts[blog._id] ? "text-green-400" : "text-gray-500"
+                        } ${updatingLikes[blog._id] ? "pointer-events-none" : ""}`}
                       onClick={() => !likedPosts[blog._id] && likePost(blog._id)}
                     />
                     <span className="text-white font-semibold">
@@ -210,9 +210,8 @@ const BlogList: React.FC = () => {
                     </span>
                     <FontAwesomeIcon
                       icon={faThumbsDown}
-                      className={`text-2xl cursor-pointer transition transform hover:scale-125 ${
-                        likedPosts[blog._id] ? "text-red-400" : "text-gray-500"
-                      }`}
+                      className={`text-2xl cursor-pointer transition transform hover:scale-125 ${likedPosts[blog._id] ? "text-red-400" : "text-gray-500"
+                        }`}
                       onClick={() => dislikePost(blog._id)}
                     />
                   </div>

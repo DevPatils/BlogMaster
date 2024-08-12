@@ -58,7 +58,7 @@ const CreateBlog: React.FC = () => {
             <div className="absolute inset-0 bg-black flex flex-col items-center justify-center overflow-hidden ">
                 <AppNavbar/>
             </div>
-            <div className="absolute inset-0 bg-black flex flex-col items-center justify-center overflow-hidden mt-[5%]">
+            <div className="absolute inset-0 bg-black flex flex-col items-center justify-center overflow-hidden mobile: mt-[25%] laptop:mt-[5%]">
                 <div className="bg-gray-500 flex flex-col p-20 mt-[5%] rounded-2xl w-[80%] max-w-2xl">
                     <h2 className="text-2xl font-bold mb-4">Create a Blog</h2>
                     <form onSubmit={handleSubmit}>
